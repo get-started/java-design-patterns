@@ -1,2 +1,11 @@
 rootProject.name = 'java-design-patterns'
+def designPatterns = [
+        'creational-patterns': [
+                'abstract-factory'
+        ]
+];
 
+designPatterns.each { catalog, patterns ->
+    include ":$catalog"
+    include(patterns.collect { ":$catalog:$it" } as String[])
+}
