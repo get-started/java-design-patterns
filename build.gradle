@@ -1,14 +1,24 @@
-apply plugin: 'java'
-apply plugin: 'idea'
-sourceCompatibility = 1.5
-version = '1.0'
+allprojects{
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    sourceCompatibility = 1.5
+    version = '1.0'
 
-repositories {
-    mavenCentral()
-}
+    repositories {
+        mavenCentral()
+    }
 
-dependencies {
-    testCompile 'junit:junit:4.11'
+    dependencies {
+        testCompile 'junit:junit:4.11'
+    }
+
+    idea{
+        module{
+            inheritOutputDirs=false
+            outputDir=sourceSets.main.output.classesDir
+            testOutputDir=sourceSets.test.output.classesDir
+        }
+    }
 }
 
 idea {
